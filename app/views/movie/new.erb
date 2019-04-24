@@ -1,0 +1,15 @@
+<h1>Please fill out the form below to create a new movie</h1>
+
+<form action='/movies' method='POST'>
+	<label for='title'>Title</label>
+	Movie Title: <input type='text' name='movie[title]'><br>
+	<label for='description'>Description</label>
+	Movie Description: <input type='text' name='movie[description]'><br>
+	<label for='genre'>Genre</label>
+	Movie Genre: <input type='text' name='movie[genre]'><br>
+	<label for='release_date'>Release Date</label>
+	Movie Release Date: <input type='text' name='movie[release_date]'><br>
+	<label for='run_time'>Run Time</label>
+	Movie Length (In minutes): <input type='number' name='movie[run_time]'><br>
+	<input type="Submit" value="Create Movie"><br>
+</form>
