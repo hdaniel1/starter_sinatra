@@ -8,16 +8,22 @@
 	<%= @movie.release_date%></li>
 	<li><label for="run_time">Run Time: </label>
 	<%= @movie.run_time%> minutes</li>
+
+	<p>
+	<% @movie.characters.each do |character| %>
+		<%= character.name %>
+	<% end %>
+	</p>
 	<li>
 		<form action="/movies" method="get">
-	   		<input type="submit" value="Return to homepage" 
+	   		<input type="submit" value="Return to homepage"
 	         name="Submit" id="frm1_submit" />
 		</form>
 	</li>
 	<li>
 		<form action="/movies/<%=@movie.id%>" method="POST">
 			<input type="hidden" name="_method" value="DELETE">
-	   		<input type="submit" value="Delete Movie" 
+	   		<input type="submit" value="Delete Movie"
 	         name="Submit" />
 		</form>
 	</li>
