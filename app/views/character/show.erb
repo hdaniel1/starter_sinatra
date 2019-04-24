@@ -4,7 +4,9 @@
 	<%= @character.actor_name%></li>
 	<li><label for="movie_id">Movie Name: </label>
 	<%= @character.movie.title %></li>
-
+	<li>
+		<input type="button"><a href="/characters/<%=@character.id%>/edit">Edit this character</a></button>
+	</li>
 	<li>
 		<form action="/characters/<%= @character.id %>" method="POST">
 			<input type="hidden" name="_method" value="DELETE">

@@ -1,4 +1,4 @@
 class Movie < ActiveRecord::Base
 
-	has_many :characters
+	has_many :characters,:dependent => :destroy
 end 

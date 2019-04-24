@@ -21,6 +21,9 @@
 		</form>
 	</li>
 	<li>
+		<input type="button"><a href="/movies/<%=@movie.id%>/edit">Edit this movie</a></button>
+	</li>
+	<li>
 		<form action="/movies/<%=@movie.id%>" method="POST">
 			<input type="hidden" name="_method" value="DELETE">
 	   		<input type="submit" value="Delete Movie"

@@ -52,7 +52,12 @@ class MovieController < Sinatra::Base
 
 	delete '/movies/:id' do
 		@movie = Movie.find(params[:id])
+		# @characters = @movie.characters
+		# @characters.each do |character|
+		# 	character.destroy 
+		# end 
 		@movie.destroy
+
 		redirect "/movies"
 	end
 
