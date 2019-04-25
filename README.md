@@ -14,8 +14,11 @@
 	3) Genre
 	4) Release Date
 	5) Run time
--Characters
-	1) Movie ID (Foreign Key)
-	2) Name
-	3) Actor Name
--Movie > Character = 1:N
+-Actors
+	1) Name
+	2) Actor Name
+-Character (J)
+	1) Movie_ID (FK)
+	2) Actor_ID (FK)
+	3) Character_name
+-Movie > Actors = N:N

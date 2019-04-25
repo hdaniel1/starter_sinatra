@@ -1,0 +1,13 @@
+<h1>Listed below are all Actors</h1>
+<ol>
+  <% @actors.each do |actor| %>
+    <li>
+      <a href=<%="/actors/#{actor.id}"%>> <%= actor.name%> </a>
+    </li>
+  <%end%>
+
+</ol>
+
+<a href="/actors/new">Click here to add a new actor</a>
+<br>
+<a href="/movies">Click here to see a list of our movies</a>

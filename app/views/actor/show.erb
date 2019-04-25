@@ -1,0 +1,25 @@
+<h1> <%=@actor.name%></h1>
+<ol>
+	<li><label for="age">Actor Age: </label>
+	<%= @actor.age%></li>
+	<li><label for="movie_id">Actor Net Worth: </label>
+	<%= @actor.net_worth %></li>
+		<li><form action="/actors/<%= @actor.id %>" method="POST">
+			<input type="hidden" name="_method" value="DELETE">
+				<input type="submit" value="Delete Actor"
+					 name="Submit" />
+		</form>
+	</li>
+	<li>
+			<a href="/actors/<%=@actor.id%>/edit">Edit this Actor</a></button>
+		<a href="/actors">Home Page</a></button>
+	</li>
+</ol>
+<h2> Below are the list of <%=@actor.name %>'s movies</h2>
+	<% @actor.characters.each do |character| %>
+		<li><a href="/movies/<%= character.movie.id%>"> <%=character.movie.title%> </li>
+		<%end%>
+
+
+
+

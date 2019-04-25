@@ -3,4 +3,4 @@ use Rack::MethodOverride
 
 run ApplicationController
 use MovieController
-use CharacterController
+use ActorController

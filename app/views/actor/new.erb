@@ -1,0 +1,26 @@
+<h1>Please fill out the form below to create a new Actor</h1>
+
+<form action='/actors' method='POST'>
+	<label for='name'>Name</label>
+	Actor Name: <input type='text' name='actor[name]'><br>
+	<label for='age'>Actor Age</label>
+	Actor Age: <input type='number' name='actor[age]'><br>
+  <label for='net_worth'>Actor Net Worth</label>
+  Actor Net Worth: <input type='number' name='actor[net_worth]'><br>
+ <h2>Choose from a list of existing movies for this Actor:</h2>
+ 	<% Movie.all.each do |movie|%>
+ 		<li><input type="checkbox"name=movies[] value="<%=movie.id%>"> <a href="/movies/<%=movie.id%>"><%=movie.title%></a></li>
+ 	<%end%>
+
+	<h2>Or, create a new movie:</h2>
+	<form action='/movies' method='POST'>
+	Movie Title: <input type='text' name='movie[title]'><br>
+	Movie Description: <input type='text' name='movie[description]'><br>
+	Movie Genre: <input type='text' name='movie[genre]'><br>
+	Movie Release Date: <input type='text' name='movie[release_date]'><br>
+	Movie Length (In minutes): <input type='number' name='movie[run_time]'><br>
+	<br>
+
+<input type="Submit" value="Create Actor">
+
+</form>

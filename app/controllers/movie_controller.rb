@@ -8,6 +8,7 @@ class MovieController < Sinatra::Base
 	end
 
 	get '/movies/new' do
+
 		erb :new
 	end
 
@@ -18,16 +19,15 @@ class MovieController < Sinatra::Base
 
 
 	post '/movies' do
-		movie = params["movie"]
-		@movie = Movie.create(title: movie["title"],
-							description: movie["description"],
-							genre: movie["genre"],
-							release_date: movie["release_date"],
-							run_time: movie["run_time"])
-		params["movie"]["character"].each do |info|
-			Character.find_or_create_by(name: info["name"],
-																	actor_name: info["actor_name"],
-																	movie_id: @movie.id)
+		@movie = Movie.find_or_create_by(params["movie"])
+		
+		params["actors"].each do |actor|
+			Character.find_or_create_by(actor_id: actor, movie_id: @movie.id)
+		end
+
+		if !params["actor"]["name"].empty?
+			@actor = Actor.find_or_create_by(params["actor"])
+			Character.find_or_create_by(actor_id: @actor.id, movie_id: @movie.id)
 		end
 		redirect "/movies/#{@movie.id}"
 	end

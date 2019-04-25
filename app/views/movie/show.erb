@@ -15,14 +15,8 @@
 	<% end %>
 	</p>
 	<li>
-		<form action="/movies" method="get">
-	   		<input type="submit" value="Return to homepage"
-	         name="Submit" id="frm1_submit" />
-		</form>
-	</li>
-	<li>
-		<input type="button"><a href="/movies/<%=@movie.id%>/edit">Edit this movie</a></button>
-	</li>
+		<a href="/movies/<%=@movie.id%>/edit">Edit this movie</a>
+		<a href="/movies">Home Page</a>
 	<li>
 		<form action="/movies/<%=@movie.id%>" method="POST">
 			<input type="hidden" name="_method" value="DELETE">
@@ -31,3 +25,12 @@
 		</form>
 	</li>
 </ol>
+
+<h2> Below are the list of <%=@movie.title %>'s actors</h2>
+	<% @movie.characters.each do |character| %>
+		<li><a href="/actors/<%= character.actor.id%>"> <%=character.actor.name%> </li>
+		<%end%>
+
+		
+
+
